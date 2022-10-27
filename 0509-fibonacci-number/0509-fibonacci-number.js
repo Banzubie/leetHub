@@ -7,5 +7,6 @@ var fib = function(n) {
     let a = 0, b = 1
     for (let i = 1; i < n; i++)
         [a,b] = [b,a+b]
+        console.log([a, b])
     return b
 };
