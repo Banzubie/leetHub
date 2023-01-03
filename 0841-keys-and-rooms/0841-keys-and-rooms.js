@@ -16,10 +16,8 @@ var canVisitAllRooms = function(rooms) {
     }
     nextDoor(0);
     
-    for (var i = 0; i < unlocked.length; i++) {
-        if (unlocked[i] === 0) {
-            return false;
-        }
+    if (unlocked.indexOf(0) > -1) {
+        return false;
     }
     return true;
 };
