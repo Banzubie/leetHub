@@ -9,18 +9,11 @@ var minimumRounds = function(tasks) {
         cache[tasks[i]] = cache[tasks[i]] + 1 || 1;
     }
     for (var count in cache) {
-        if (cache[count] === 1) {
+        if(cache[count] < 2) {
             return -1;
         }
-        while (cache[count] !== 0) {
-            if (cache[count] === 4 || cache[count] === 2) {
-                cache[count] -= 2;
-                rounds++;
-            } else {
-               cache[count] -= 3;
-                rounds++; 
-            }
-        }
+        let temp = parseInt(cache[count] / 3) + (cache[count] % 3 !== 0 ? 1 : 0);
+        rounds += temp;
     }
     return rounds;
 };
