@@ -3,16 +3,17 @@
  * @return {number}
  */
 var minimumRounds = function(tasks) {
-    var cache = {};
+    var map = new Map();
     var rounds = 0;
     for (var i = 0; i < tasks.length; i++) {
-        cache[tasks[i]] = cache[tasks[i]] + 1 || 1;
+        map.set(tasks[i], (map.get(tasks[i]) !== undefined ? (map.get(tasks[i]) + 1) : 1))
     }
-    for (var count in cache) {
-        if(cache[count] < 2) {
+    const iterator = map.values();
+    for (var count of iterator) {
+        if(count < 2) {
             return -1;
         }
-        let temp = parseInt(cache[count] / 3) + (cache[count] % 3 !== 0 ? 1 : 0);
+        let temp = parseInt(count / 3) + (count % 3 !== 0 ? 1 : 0);
         rounds += temp;
     }
     return rounds;
