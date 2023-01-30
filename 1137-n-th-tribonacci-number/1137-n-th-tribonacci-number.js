@@ -4,7 +4,6 @@
  */
 var tribonacci = function(n) {
     if (n <= 1) return n
-    //if (n === 2) return 1
     var total = 0;
     var first = 0;
     var second = 1;
