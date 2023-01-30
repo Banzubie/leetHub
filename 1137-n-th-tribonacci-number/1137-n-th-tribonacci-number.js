@@ -9,12 +9,18 @@ var tribonacci = function(n) {
     var first = 0;
     var second = 1;
     var third = 1;
-    while (n > 2) {
+    for (var i = 3; i <= n; i++) {
         total = first + second + third
         first = second
         second = third
         third = total
-        n--
     }
-    return total;
+    // while (n > 2) {
+    //     total = first + second + third
+    //     first = second
+    //     second = third
+    //     third = total
+    //     n--
+    // }
+    return third;
 };
