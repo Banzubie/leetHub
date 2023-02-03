@@ -4,26 +4,14 @@
  * @return {string}
  */
 var convert = function(s, numRows) {
-    var rows = {}
+    if (numRows < 2 || s.length < numRows) return s;
+    var rows = new Array(numRows).fill('');
     var forward = true;
     var idx = 0;
     for (var i = 0; i < s.length; i++) {
-        rows[idx] ? rows[idx] += s[i] : rows[idx] = s[i]
-        if (forward) {
-            if (idx === numRows - 1) {
-                forward = false;
-                idx--
-            } else {
-                idx++
-            }
-        } else {
-            if (idx === 0) {
-                forward = true;
-                idx++
-            } else {
-                idx--
-            }
-        }
+        rows[idx] += s[i]
+        forward ? idx++ : idx--
+        if (idx === numRows - 1 || idx === 0) forward = !forward
     }
-    return Object.values(rows).join('');
+    return rows.join('');
 };
