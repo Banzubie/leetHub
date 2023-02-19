@@ -3,7 +3,6 @@
  * @return {number}
  */
 var reverse = function(x) {
-    //if (x < 10 && x > -10) return x;
     let neg = x < 0;
     x = Math.abs(x)
     let ans = 0;
