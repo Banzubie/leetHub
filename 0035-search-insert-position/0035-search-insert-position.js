@@ -5,12 +5,7 @@
  */
 var searchInsert = function(nums, target) {
     for (var i = 0; i < nums.length; i++) {
-        if (nums[i] === target) {
-            return i;
-        } else if (nums[i] > target) {
-            if (i === 0) return i
-            return i;
-        }
+        if (nums[i] === target || nums[i] > target) return i;
     }
     return i;
 };
