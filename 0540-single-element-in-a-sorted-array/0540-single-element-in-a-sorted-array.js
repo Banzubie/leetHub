@@ -3,9 +3,17 @@
  * @return {number}
  */
 var singleNonDuplicate = function(nums) {
-    for (let i = 0; i < nums.length; i+= 2){
-        if (nums[i] !== nums[i+1]) {
-            return nums[i]
+    var left = 0, right = nums.length -1;
+    while (left < right) {
+        let mid = Math.floor((left + right) / 2)
+        if (mid % 2 === 1) {
+            mid--;
+        }
+        if (nums[mid] !== nums[mid + 1]) {
+            right = mid;
+        } else {
+            left = mid + 2;
         }
     }
+    return nums[left]
 };
